@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -14,6 +13,13 @@ import android.widget.SimpleCursorAdapter;
 /**
  * Created by JacobDexter-Milling on 3/18/16.
  */
+
+/**
+ * This activity defines the functionality for of the page a user sees when they search by the busyness category
+ * from the Main Activity.
+ *
+ */
+
 public class SearchByBusynessResultsActivity extends AppCompatActivity {
 
     ListView resultsListView;
@@ -31,7 +37,7 @@ public class SearchByBusynessResultsActivity extends AppCompatActivity {
         resultsListView = (ListView) findViewById(R.id.resultsListView);
 
         DataBaseHelper helper = DataBaseHelper.getInstance(SearchByBusynessResultsActivity.this);
-        cursor = helper.getParksRankedByBusyness();
+        cursor = helper.returnParksRankedByBusyness();
 
         cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
         resultsListView.setAdapter(cursorAdapter);

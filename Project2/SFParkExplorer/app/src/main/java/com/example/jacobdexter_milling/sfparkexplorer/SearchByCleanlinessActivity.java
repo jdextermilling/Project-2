@@ -13,6 +13,13 @@ import android.widget.SimpleCursorAdapter;
 /**
  * Created by JacobDexter-Milling on 3/21/16.
  */
+
+/**
+ * This activity defines the functionality for of the page a user sees when they search by
+ * the cleanliness category from the Main Activity.
+ *
+ */
+
 public class SearchByCleanlinessActivity extends AppCompatActivity {
 
     ListView resultsListView;
@@ -28,7 +35,7 @@ public class SearchByCleanlinessActivity extends AppCompatActivity {
         resultsListView = (ListView) findViewById(R.id.resultsListView);
 
         DataBaseHelper helper = DataBaseHelper.getInstance(SearchByCleanlinessActivity.this);
-        cursor = helper.getParksRankedByCleanliness();
+        cursor = helper.returnParksRankedByCleanliness();
 
         cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
         resultsListView.setAdapter(cursorAdapter);

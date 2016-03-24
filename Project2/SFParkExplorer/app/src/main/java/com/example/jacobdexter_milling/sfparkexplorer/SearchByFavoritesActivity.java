@@ -1,5 +1,6 @@
 package com.example.jacobdexter_milling.sfparkexplorer;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +9,26 @@ import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 /**
  * Created by JacobDexter-Milling on 3/21/16.
  */
+
+/**
+ * This activity defines the functionality for the Favorites page. It populates a list based on what items have been added by
+ * the use in the Details Activity.
+ *
+ */
+
 public class SearchByFavoritesActivity extends AppCompatActivity {
 
+    // Declarations
     ListView resultsListView;
     CursorAdapter cursorAdapter;
+    Cursor cursor;
+    int id;
+    DataBaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +38,41 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
 
         resultsListView = (ListView) findViewById(R.id.resultsListView);
 
-        DataBaseHelper helper = DataBaseHelper.getInstance(SearchByFavoritesActivity.this);
-        Cursor cursor = helper.getParksThatBeFavorites();
-
+        // Creating the helper variable to connect this class to the database singleton
+        helper = DataBaseHelper.getInstance(this);
+        cursor = helper.returnParksThatBeFavorites();
         cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
         resultsListView.setAdapter(cursorAdapter);
+
+
+
+        // id is a method to retrieve the _id from the intent coming fom the results activity
+        id = retrieveIntentForPark_id();
+
+
+
+
 
         resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO: remove list item from favorite ( change from 1 back to 0)
+
+                // This takes the list item and sends it to the DetailsActivity
+                Intent intentForDetails = new Intent(SearchByFavoritesActivity.this, DetailsActivity.class);
+                cursor.moveToPosition(position);
+                intentForDetails.putExtra(DataBaseHelper.DATA_KEY, cursor.getInt(cursor.getColumnIndex(DataBaseHelper.COL_ID)));
+                // updated when the user returns to the MainActivity.
+                startActivity(intentForDetails);
+
+            }
+        });
+
+        resultsListView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                helper.dbInsert(id, 0);
+                Toast.makeText(SearchByFavoritesActivity.this, "ParkItem Removed from My Favorites", Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
 
@@ -42,5 +80,11 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
 
 
 
+    }
+
+    // Method for retrieving the item _id from results activity
+    public int retrieveIntentForPark_id() {
+        Intent sentIntent = getIntent();
+        return sentIntent.getIntExtra(DataBaseHelper.DATA_KEY, -1);
     }
 }

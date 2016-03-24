@@ -10,13 +10,23 @@
     tools:context="com.example.jacobdexter_milling.sfparkexplorer.MainActivity"
     android:background="@color/colorPrimaryDark">
 
+    <ListView
+        android:id="@+id/searchableListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_green_light"
+        android:textStyle="bold"/>
+
     <Button
         android:id="@+id/myFavoritesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Favorites"
         android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/searchableListView"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/searchByTextView"
@@ -27,7 +37,8 @@
         android:text="Search by:"
         android:textSize="25dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/sizeSearchButton"
@@ -35,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Size"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/busynessSearchButton"
@@ -43,7 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Busyness"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/cleanlinessSearchButton"
@@ -51,7 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cleanliness"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
 
 

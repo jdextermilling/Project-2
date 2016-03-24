@@ -10,6 +10,11 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+/**
+ * This activity defines the functionality for of the page a user sees when they search by
+ * the cleanliness category from the Main Activity.
+ */
+
 public class SearchBySizeResultsActivity extends AppCompatActivity {
 
 
@@ -26,7 +31,7 @@ public class SearchBySizeResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results_for_size);
 
         DataBaseHelper helper = DataBaseHelper.getInstance(SearchBySizeResultsActivity.this);
-        cursor = helper.getParksRankedBySize();
+        cursor = helper.returnParksRankedBySize();
         resultsListView = (ListView)findViewById(R.id.resultsListView);
         cursorAdapter = new SimpleCursorAdapter(this,android.R.layout.simple_list_item_1,cursor,new String[]{DataBaseHelper.COL_NAME},new int[]{android.R.id.text1},0);
         resultsListView.setAdapter(cursorAdapter);

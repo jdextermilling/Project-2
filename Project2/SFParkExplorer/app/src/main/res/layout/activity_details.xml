@@ -19,14 +19,15 @@
             android:id="@+id/addToFavoritesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add to My Favorites"/>
+            android:text="Add to My Favorites"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/removeFromFavoritesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove from Favorites"/>
-
+            android:text="Remove from Favorites"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <ImageView
@@ -40,38 +41,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageView"/>
+        android:layout_below="@+id/imageView"
+        android:textStyle="bold"/>
+
 
     <TextView
         android:id="@+id/sizeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/nameTextView"/>
+        android:layout_below="@+id/nameTextView"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/busynessTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/sizeTextView"/>
+        android:layout_below="@+id/sizeTextView"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/cleanlinessTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/busynessTextView"/>
-
-    <TextView
-        android:id="@+id/favoritesStatusTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/cleanlinessTextView"/>
-
-
-
+        android:layout_below="@+id/busynessTextView"
+        android:textStyle="bold"/>
 
 
 </RelativeLayout>
