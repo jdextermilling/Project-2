@@ -14,7 +14,7 @@ public class PopulateDBItems {
     public static ArrayList<ParkItem> getParkItems(Context context){
         ParkItem dolores = new ParkItem();
         dolores.setPrimaryKey(1);
-        dolores.setName("Dolores");
+        dolores.setName("Dolores Park");
         dolores.setSize(16);
         dolores.setBusyness(10);
         dolores.setCleanliness(5);
@@ -34,7 +34,7 @@ public class PopulateDBItems {
 
         ParkItem altaPlaza = new ParkItem();
         altaPlaza.setPrimaryKey(3);
-        altaPlaza.setName("Marina Green");
+        altaPlaza.setName("Alta Plaza");
         altaPlaza.setSize(74);
         altaPlaza.setBusyness(8);
         altaPlaza.setCleanliness(9);
@@ -44,7 +44,7 @@ public class PopulateDBItems {
 
         ParkItem goldenGate = new ParkItem();
         goldenGate.setPrimaryKey(4);
-        goldenGate.setName("Golden Gate");
+        goldenGate.setName("Golden Gate Park");
         goldenGate.setSize(1017);
         goldenGate.setBusyness(9);
         goldenGate.setCleanliness(8);
@@ -74,7 +74,7 @@ public class PopulateDBItems {
 
         ParkItem bernalHeights = new ParkItem();
         bernalHeights.setPrimaryKey(7);
-        bernalHeights.setName("Bernal Heights");
+        bernalHeights.setName("Bernal Heights Park");
         bernalHeights.setSize(26);
         bernalHeights.setBusyness(5);
         bernalHeights.setCleanliness(6);
@@ -99,21 +99,10 @@ public class PopulateDBItems {
         pioneerPark.setBusyness(7);
         pioneerPark.setCleanliness(9);
         pioneerPark.setFavorite(0);
-        pioneerPark.setImageResourceID(R.drawable.washington_square_683x506);
+        pioneerPark.setImageResourceID(R.drawable.pioneer_park_218x300);
         parkItems.add(pioneerPark);
 
         return parkItems;
     }
 
 }
-
-//        db.insert(1,"Dolores",16,10,5,0, R.drawable.dolores_park);
-//        db.insert(2, "Marina Green", 74, 8, 9, 0, R.drawable.marina_green_400x533_use);
-//        db.insert(3, "Alta Plaza", 12, 6, 10, 0, R.drawable.alta_plaza_683x455);
-//        db.insert(4, "Golden Gate", 1017, 9, 8, 0, R.drawable.golden_gate_re_size);
-//        db.insert(5, "Lands End", 45, 4, 9, 0, R.drawable.lands_end);
-//        db.insert(6, "Lake Merced", 614, 7, 7, 0, R.drawable.lake_merced_586x286);
-//        db.insert(7, "Bernal Heights", 26, 5, 6, 0, R.drawable.bernal_heights);
-//        db.insert(8, "Washington Square", 10, 10, 6, 0, R.drawable.washington_square_683x506);
-
-//        db.insert(9, "Pioneer ParkItem", 5, 7, 9, 0, R.drawable.pioneer_park);

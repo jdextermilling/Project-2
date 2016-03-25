@@ -17,14 +17,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    // Key for passing data from Results Activity to Details activity via intent
+    /**
+     * Key for passing data from Results Activity to Details activity via intent.
+     */
     public static final String DATA_KEY = "DataKey";
 
-    //Creating the data base ParkItem
+    /**
+     * Creating the data base ParkItem.
+     */
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "PARKS_DB";
 
-    // Creating the table ParkItem List Table
+    /**
+     * Creating the table ParkItem List Table.
+     */
     public static final String PARKS_LIST_TABLE_NAME = "PARKS_LIST";
     public static final String COL_ID = "_id";
     public static final String COL_NAME = "NAME";
@@ -103,7 +109,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     /**
      * Method for returning search of all LIKE names to the search menu feature on Main Activity.
-     * @param query is taken from the intent.
+     * @param query is taken from the user in the input field.
      * @return a cursor.
      */
     public Cursor returnGlobalSearch(String query){

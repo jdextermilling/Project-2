@@ -95,6 +95,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 helper.dbInsert(id,  1);
                 Toast.makeText(DetailsActivity.this, "ParkItem Added to My Favorites", Toast.LENGTH_SHORT).show();
+
             }
         });
 

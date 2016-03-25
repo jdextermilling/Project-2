@@ -40,17 +40,10 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
 
         // Creating the helper variable to connect this class to the database singleton
         helper = DataBaseHelper.getInstance(this);
-        cursor = helper.returnParksThatBeFavorites();
-        cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
-        resultsListView.setAdapter(cursorAdapter);
-
 
 
         // id is a method to retrieve the _id from the intent coming fom the results activity
         id = retrieveIntentForPark_id();
-
-
-
 
 
         resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,14 +70,31 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
         });
 
 
-
-
-
     }
 
     // Method for retrieving the item _id from results activity
     public int retrieveIntentForPark_id() {
         Intent sentIntent = getIntent();
         return sentIntent.getIntExtra(DataBaseHelper.DATA_KEY, -1);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        cursor = helper.returnParksThatBeFavorites();
+
+        if (cursorAdapter == null) {
+            cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,
+                    new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
+            resultsListView.setAdapter(cursorAdapter);
+        } else {
+            cursorAdapter.swapCursor(cursor);
+            cursorAdapter.notifyDataSetChanged();
+        }
+
+
+
+
     }
 }

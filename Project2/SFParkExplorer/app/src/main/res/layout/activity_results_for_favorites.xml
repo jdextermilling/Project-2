@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SearchByFavoritesActivity">
+    tools:context=".SearchByFavoritesActivity"
+    android:background="@android:color/holo_orange_light">
 
     <TextView
         android:id="@+id/resultsTextView"
@@ -18,14 +19,7 @@
         android:layout_centerHorizontal="true"
         android:textStyle="bold"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Long Press to remove"
-        android:layout_below="@+id/resultsTextView"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+
 
     <ListView
         android:id="@+id/resultsListView"

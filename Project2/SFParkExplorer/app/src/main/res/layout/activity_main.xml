@@ -26,7 +26,10 @@
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/searchableListView"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:background="@android:color/holo_orange_light"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"/>
 
     <TextView
         android:id="@+id/searchByTextView"
@@ -37,7 +40,7 @@
         android:text="Search by:"
         android:textSize="25dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorAccent"
+        android:textColor="@android:color/black"
         android:textStyle="bold"/>
 
     <Button
@@ -47,7 +50,8 @@
         android:layout_height="wrap_content"
         android:text="Size"
         android:textSize="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_dark"/>
 
     <Button
         android:id="@+id/busynessSearchButton"
@@ -56,7 +60,8 @@
         android:layout_height="wrap_content"
         android:text="Busyness"
         android:textSize="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_dark"/>
 
     <Button
         android:id="@+id/cleanlinessSearchButton"
@@ -65,7 +70,8 @@
         android:layout_height="wrap_content"
         android:text="Cleanliness"
         android:textSize="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_dark"/>
 
 
 
