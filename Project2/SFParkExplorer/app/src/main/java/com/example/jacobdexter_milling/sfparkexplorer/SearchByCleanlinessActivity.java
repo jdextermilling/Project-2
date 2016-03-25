@@ -22,6 +22,9 @@ import android.widget.SimpleCursorAdapter;
 
 public class SearchByCleanlinessActivity extends AppCompatActivity {
 
+    /**
+     * Declarations
+     */
     ListView resultsListView;
     CursorAdapter cursorAdapter;
     Cursor cursor;
@@ -45,11 +48,15 @@ public class SearchByCleanlinessActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // This takes the list item and sends it to the DetailsActivty
+                /**
+                 * This takes the list item and sends it to the DetailsActivty.
+                 */
                 Intent intentForDetails = new Intent(SearchByCleanlinessActivity.this, DetailsActivity.class);
                 cursor.moveToPosition(position);
                 intentForDetails.putExtra(DataBaseHelper.DATA_KEY, cursor.getInt(cursor.getColumnIndex(DataBaseHelper.COL_ID)));
-                // updated when the user returns to the MainActivity.
+                /**
+                 * updated when the user returns to the MainActivity.
+                 */
                 startActivity(intentForDetails);
 
             }

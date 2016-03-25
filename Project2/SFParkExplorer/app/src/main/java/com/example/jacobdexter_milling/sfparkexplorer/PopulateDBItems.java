@@ -9,8 +9,17 @@ import java.util.ArrayList;
  */
 public class PopulateDBItems {
 
+    /**
+     * Declaring and instantiating the arrayList parkItems
+     */
     static ArrayList<ParkItem> parkItems = new ArrayList<>();
 
+    /**
+     * The getParkItems method creates entries (objects) for the data base and populates
+     * the variable values for each.
+     * @param context
+     * @return the arrayList parksItems
+     */
     public static ArrayList<ParkItem> getParkItems(Context context){
         ParkItem dolores = new ParkItem();
         dolores.setPrimaryKey(1);

@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String PREF_KEY_FIRST_APP_RUN = "prefKeyFirstAppRun";
     private SharedPreferences sharedPref;
 
-    // ------------- This is what happens when the app is first opened. -----------------------------------
+    /**
+     *  ------------- This is what happens when the app is first opened. --------------------------
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         busynessSearchButton = (Button) findViewById(R.id.busynessSearchButton);
         cleanlinessSearchButton = (Button) findViewById(R.id.cleanlinessSearchButton);
 
+        /**
+         * This method controls the shared preferences so that the app knows if
+         * it has been run before. This way the database is only initialized once and
+         * therefore does not duplicate the data if the app is destroyed.
+         */
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getBaseContext());
         if (checkForFirstTimeeRun()) {
             SharedPreferences.Editor editor = sharedPref.edit();
@@ -70,16 +78,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * This method creates the database.
-         */
-        //initializeDB();
-
-        /**
          * This method handles the functionality of the search menu feature.
          */
         handleIntent(getIntent());
 
-        /// ----- Buttons on the MainActivity -----------
+        /**
+         * ----- Buttons on the MainActivity -----------
+         */
+
+
         // Creating the methods for the functionality of the buttons
 
 
@@ -122,23 +129,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    } // --------- End Main Method ---------------------------------------------------------------
+    } /** --------- End Main Method ---------------------------------------------------------------
 
-    // ------ Methods for support within the Main Activity ----------------------------------------
+    /**
+     * ------ Methods for support within the Main Activity ----------------------------------------
+     */
 
-    // Method for the search menu feature
+    /**
+     * Method for the search menu feature.
+     * @param intent
+     */
     @Override
     protected void onNewIntent(Intent intent) {
         handleIntent(intent);
     }
 
-    // Second method for the search menu feature
+    /**
+     * Second method for the search menu feature.
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
         final MenuItem searchMenu = menu.findItem(R.id.search);
-        // Associate searchable configuration with the SearchView
+        /**
+         * Associate searchable configuration with the SearchView.
+         */
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
@@ -176,7 +194,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Third method for search menu feature
+    /**
+     * Third method for search menu feature.
+     * @param intent
+     */
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -191,11 +212,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    // This takes the list item and sends it to the DetailsActivity
+                    /**
+                     * This takes the list item and sends it to the DetailsActivity.
+                     */
                     Intent intentForDetails = new Intent(MainActivity.this, DetailsActivity.class);
                     cursor.moveToPosition(position);
                     intentForDetails.putExtra(DataBaseHelper.DATA_KEY, cursor.getInt(cursor.getColumnIndex(DataBaseHelper.COL_ID)));
-                    // updated when the user returns to the MainActivity.
+                    /**
+                     * updated when the user returns to the MainActivity.
+                     */
                     startActivity(intentForDetails);
 
                 }
@@ -203,6 +228,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method take the arraylist parkItems from the PopulateDBItems class and puts the
+     * data into the database so that it can be called upon later.
+     */
     private void initializeDB() {
         ArrayList<ParkItem> parkItems = PopulateDBItems.getParkItems(this);
         for (ParkItem item : parkItems) {
@@ -211,6 +240,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method for checking if the app has been before and setting the shared preference value.
+     * @return a boolean indicating if the app has been run before.
+     */
     private boolean checkForFirstTimeeRun() {
         boolean isFirstRun = sharedPref.getBoolean(PREF_KEY_FIRST_APP_RUN, true);
         return isFirstRun;

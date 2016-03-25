@@ -22,9 +22,11 @@ import android.widget.SimpleCursorAdapter;
 
 public class SearchByBusynessResultsActivity extends AppCompatActivity {
 
+    /**
+     * Declarations
+     */
     ListView resultsListView;
     CursorAdapter cursorAdapter;
-
     Cursor cursor;
 
 
@@ -33,36 +35,29 @@ public class SearchByBusynessResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_for_busyness);
 
-
         resultsListView = (ListView) findViewById(R.id.resultsListView);
-
         DataBaseHelper helper = DataBaseHelper.getInstance(SearchByBusynessResultsActivity.this);
         cursor = helper.returnParksRankedByBusyness();
-
         cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{DataBaseHelper.COL_NAME}, new int[]{android.R.id.text1}, 0);
         resultsListView.setAdapter(cursorAdapter);
-
-
-
-
 
         resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // This takes the list item and sends it to the DetailsActivty
+                /**
+                 * This takes the list item and sends it to the DetailsActivity.
+                 */
                 Intent intentForDetails = new Intent(SearchByBusynessResultsActivity.this, DetailsActivity.class);
                 cursor.moveToPosition(position);
                 intentForDetails.putExtra(DataBaseHelper.DATA_KEY, cursor.getInt(cursor.getColumnIndex(DataBaseHelper.COL_ID)));
-                // updated when the user returns to the MainActivity.
+                /**
+                 * updated when the user returns to the MainActivity.
+                 */
                 startActivity(intentForDetails);
 
             }
         });
-
-
-
-
 
     }
 }

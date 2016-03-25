@@ -38,11 +38,15 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
 
         resultsListView = (ListView) findViewById(R.id.resultsListView);
 
-        // Creating the helper variable to connect this class to the database singleton
+        /**
+         * Creating the helper variable to connect this class to the database singleton.
+         */
         helper = DataBaseHelper.getInstance(this);
 
 
-        // id is a method to retrieve the _id from the intent coming fom the results activity
+        /**
+         * id is a method to retrieve the _id from the intent coming fom the results activity.
+         */
         id = retrieveIntentForPark_id();
 
 
@@ -50,7 +54,9 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // This takes the list item and sends it to the DetailsActivity
+                /**
+                 * This takes the list item and sends it to the DetailsActivity.
+                 */
                 Intent intentForDetails = new Intent(SearchByFavoritesActivity.this, DetailsActivity.class);
                 cursor.moveToPosition(position);
                 intentForDetails.putExtra(DataBaseHelper.DATA_KEY, cursor.getInt(cursor.getColumnIndex(DataBaseHelper.COL_ID)));
@@ -68,16 +74,20 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 
-    // Method for retrieving the item _id from results activity
+    /**
+     * / Method for retrieving the item _id from results activity
+     * @return
+     */
     public int retrieveIntentForPark_id() {
         Intent sentIntent = getIntent();
         return sentIntent.getIntExtra(DataBaseHelper.DATA_KEY, -1);
     }
 
+    /**
+     * This method pulls from the database to create to the current list of favorites.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -92,9 +102,5 @@ public class SearchByFavoritesActivity extends AppCompatActivity {
             cursorAdapter.swapCursor(cursor);
             cursorAdapter.notifyDataSetChanged();
         }
-
-
-
-
     }
 }

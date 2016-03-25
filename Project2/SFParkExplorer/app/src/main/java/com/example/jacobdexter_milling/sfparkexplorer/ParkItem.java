@@ -2,6 +2,9 @@ package com.example.jacobdexter_milling.sfparkexplorer;
 
 /**
  * Created by JacobDexter-Milling on 3/24/16.
+ *
+ * This class makes the declarations and getter and setter methods that will be used by
+ * the PopulateDBItems class.
  */
 public class ParkItem {
 

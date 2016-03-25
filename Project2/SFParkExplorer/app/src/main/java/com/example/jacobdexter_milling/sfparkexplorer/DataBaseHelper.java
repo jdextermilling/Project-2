@@ -8,9 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by JacobDexter-Milling on 3/15/16.
- */
-
-/**
+ *
  * This class provides the methods for creating and manipulating the database.
  *
  */
@@ -52,18 +50,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     public static final String SQL_DROP_PARKS_TABLE = "DROP TABLE IF EXISTS parkItems";
-
     public static final String[] PARKS_LIST_COLUMNS = {COL_ID, COL_NAME, COL_SIZE, COL_BUSYNESS, COL_CLEANLINESS, COL_FAVORITE, COL_IMAGE};
-
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Declaring the DataBaseHelper
+    /**
+     * Declaring the DataBaseHelper
+     */
     private static DataBaseHelper sInstance;
 
-    // Creating the database singleton
+    /**
+     * Creating the database singleton.
+     * @param context
+     * @return the singleton
+     */
     public static DataBaseHelper getInstance(Context context){
         if(sInstance == null){
             sInstance = new DataBaseHelper(context.getApplicationContext());

@@ -56,7 +56,6 @@ public class DetailsActivity extends AppCompatActivity {
         busynessTexView = (TextView) findViewById(R.id.busynessTextView);
         cleanlinessTextView = (TextView) findViewById(R.id.cleanlinessTextView);
 
-
         /**
          * Creating the helper variable to connect this class to the database singleton.
          */
@@ -86,7 +85,6 @@ public class DetailsActivity extends AppCompatActivity {
         busynessTexView.setText(String.valueOf(parkBusyness + " out of 10 for Busyness."));
         cleanlinessTextView.setText(String.valueOf(parkCleanliness + " out of 10 for Cleanliness."));
 
-
         /**
          * This button runs a method from DataBaseHelper to make a given park a favorite.
          */
@@ -95,7 +93,6 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 helper.dbInsert(id,  1);
                 Toast.makeText(DetailsActivity.this, "ParkItem Added to My Favorites", Toast.LENGTH_SHORT).show();
-
             }
         });
 
