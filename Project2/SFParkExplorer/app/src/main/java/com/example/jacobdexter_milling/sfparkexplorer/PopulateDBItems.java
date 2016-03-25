@@ -58,7 +58,7 @@ public class PopulateDBItems {
         goldenGate.setBusyness(9);
         goldenGate.setCleanliness(8);
         goldenGate.setFavorite(0);
-        goldenGate.setImageResourceID(R.drawable.golden_gate_re_size);
+        goldenGate.setImageResourceID(R.drawable.gg_best);
         parkItems.add(goldenGate);
 
         ParkItem landsEnd = new ParkItem();
@@ -108,7 +108,7 @@ public class PopulateDBItems {
         pioneerPark.setBusyness(7);
         pioneerPark.setCleanliness(9);
         pioneerPark.setFavorite(0);
-        pioneerPark.setImageResourceID(R.drawable.pioneer_park_218x300);
+        pioneerPark.setImageResourceID(R.drawable.pioneer_park_291x400);
         parkItems.add(pioneerPark);
 
         return parkItems;

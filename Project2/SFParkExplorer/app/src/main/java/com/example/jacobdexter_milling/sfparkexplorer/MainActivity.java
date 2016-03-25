@@ -27,7 +27,6 @@ import java.util.ArrayList;
 
 /**
  * Add high level description of what the activity (or class) does
- *
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPref;
 
     /**
-     *  ------------- This is what happens when the app is first opened. --------------------------
+     * ------------- This is what happens when the app is first opened. --------------------------
+     *
      * @param savedInstanceState
      */
     @Override
@@ -131,12 +131,13 @@ public class MainActivity extends AppCompatActivity {
         });
     } /** --------- End Main Method ---------------------------------------------------------------
 
-    /**
+     /**
      * ------ Methods for support within the Main Activity ----------------------------------------
      */
 
     /**
      * Method for the search menu feature.
+     *
      * @param intent
      */
     @Override
@@ -146,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Second method for the search menu feature.
+     *
      * @param menu
      * @return
      */
@@ -196,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Third method for search menu feature.
+     *
      * @param intent
      */
     private void handleIntent(Intent intent) {
@@ -242,10 +245,41 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Method for checking if the app has been before and setting the shared preference value.
+     *
      * @return a boolean indicating if the app has been run before.
      */
     private boolean checkForFirstTimeeRun() {
         boolean isFirstRun = sharedPref.getBoolean(PREF_KEY_FIRST_APP_RUN, true);
         return isFirstRun;
     }
+
+    /**
+     * Sets the click listeners for ALL views in the Activity
+     *
+     * TODO: THIS WILL BE USED FOR REFACTORING
+     */
+//    private void initClickListeners() {
+//        setButtonClickListener(sizeSearchButton, );
+//        setButtonClickListener(busynessSearchButton, );
+//        setButtonClickListener(cleanlinessSearchButton, );
+//        setButtonClickListener(myFavoritesButton, );
+//    }
+//
+//    private void setButtonClickListener(Button button, final String ) {
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = getIntentForSearchResult();
+//                startActivity(intent);
+//            }
+//        });
+//
+//    }
+//
+//    private Intent getIntentForSearchResult(String key, String value, Class classToLaunch) {
+//        Intent intentMainToResultsActivity = new Intent(MainActivity.this, classToLaunch);
+//        intentMainToResultsActivity.putExtra(key, value);
+//
+//        return ;
+//    }
 }

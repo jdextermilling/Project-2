@@ -17,7 +17,8 @@
         android:text="My Favorite Parks"
         android:textSize="40dp"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
 
 
 

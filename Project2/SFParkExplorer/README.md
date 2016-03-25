@@ -8,6 +8,4 @@ walk through
 
 
 Known bugs:
-1) If a park is already in My Favorites the toast will still say "Park added to My Favorites".
-2) Some of the components in the XML layouts don't scale properly when the device changes orientation from portait to landscape.
-3) The Details screen does not display the data for Marina Green properly, it cuts off a TextView.
+1) The details layout may mis-display the buttons if the screen is rotated to landscape or if the device used has a screen that varies from a Nexus 7.
